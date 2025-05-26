@@ -24,4 +24,7 @@
    git clone https://github.com/Mochoni23/visit-track-rewards.git
 
 2.link for the pitch deck
+
+3.link of deployment
+    https://visit-track-rewards.vercel.app/
    
