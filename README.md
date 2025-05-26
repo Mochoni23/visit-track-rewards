@@ -24,6 +24,7 @@
    git clone https://github.com/Mochoni23/visit-track-rewards.git
 
 2.link for the pitch deck
+     https://www.canva.com/design/DAGohnxIvJk/w9gc7MBBaa-3uKPzfD5FJA/edit?utm_content=DAGohnxIvJk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 3.link of deployment
     https://visit-track-rewards.vercel.app/
