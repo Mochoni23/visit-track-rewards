@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Track Rewards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Reset Button -->
+        <button id="resetDataBtn" class="btn reset-btn">Reset All Data</button>
+
+        <!-- Header -->
+        <header class="header">
+            <h1>🎯 Visit Track Rewards</h1>
+            <p>Simple customer loyalty tracking system</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="main-grid">
+            <!-- Left Column - Customer Tracker -->
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📱 Log Customer Visit</h2>
+                    </div>
+                    <div class="card-content">
+                        <form id="visitForm">
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number *</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    class="form-input" 
+                                    placeholder="(555) 123-4567"
+                                    required
+                                >
+                                <div class="qr-scanner-container">
+                                    <button id="scan-qr-btn" class="btn-primary">
+                                        Scan QR Code
+                                    </button>
+                                    <div id="qr-reader" style="width: 300px;">
+                                        <!-- Live camera preview appears here -->
+                                    </div>
+                                    <div id="qr-result" class="feedback-area">
+                                        <!-- Success/error messages display here -->
+                                    </div>
+                                    <button id="stop-scan-btn" class="btn-secondary">
+                                        Stop Scanning
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="name">Customer Name (Optional)</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    class="form-input" 
+                                    placeholder="Enter customer name"
+                                >
+                            </div>
+                            <button type="submit" class="btn">Record Visit</button>
+                        </form>
+
+                        <div class="threshold-section">
+                            <label class="form-label">Reward Threshold: <span id="thresholdValue">5</span> visits</label>
+                            <div class="slider-container">
+                                <input 
+                                    type="range" 
+                                    id="thresholdSlider" 
+                                    class="slider" 
+                                    min="1" 
+                                    max="20" 
+                                    value="5"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Analytics and Customer List -->
+            <div>
+                <!-- Analytics Cards -->
+                <div class="analytics-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-number" id="totalCustomers">0</div>
+                        <div class="stat-label">Total Customers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-number" id="totalVisits">0</div>
+                        <div class="stat-label">Total Visits</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎁</div>
+                        <div class="stat-number" id="totalRewards">0</div>
+                        <div class="stat-label">Rewards Earned</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-number" id="visitsToday">0</div>
+                        <div class="stat-label">Visits Today</div>
+                    </div>
+                </div>
+
+                <!-- Customer List -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">👥 Customer List</h2>
+                    </div>
+                    <div class="card-content">
+                        <div id="customerList">
+                            <div class="empty-state">
+                                <div class="empty-state-icon">📝</div>
+                                <p>No customers yet. Add your first customer visit above!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="script.js"></script>
+
+    <!-- Audio cues (using local files or working CDN links) -->
+    <audio id="successSound" src="sound effects/success.wav" preload="auto"></audio>
+    <audio id="rewardSound" src="sound effects/bonus.wav" preload="auto"></audio>
+    <audio id="errorSound" src="sound effects/error.wav" preload="auto"></audio>
+</body>
+</html>
